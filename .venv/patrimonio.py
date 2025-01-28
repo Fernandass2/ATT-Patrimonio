@@ -1,13 +1,13 @@
 from PyQt5.QtWidgets import QApplication, QWidget, QLabel, QLineEdit, QPushButton, QVBoxLayout
 import sys 
 
-class CadastroCliente(QWidget):
+class Patrimonio(QWidget):
     def __init__(self):
         super().__init__()
 
         # Vamos configurar a geometria da tela. Setandos valores de posição X e Y,
         # além de largura e altura
-        self.setGeometry(500,30,400,600)
+        self.setGeometry(500,300,400,300)
 
         # Texto para a barra de título
         self.setWindowTitle("Patrimônio do Objeto")
@@ -17,70 +17,70 @@ class CadastroCliente(QWidget):
 
         # Labels para o id do objeto
         self.label_id = QLabel("ID do objeto:")
-        self.label_id.setStyleSheet("QLabel{font-size:15pt}")
+        self.label_id.setStyleSheet("QLabel{font-size:12pt}")
         #LineEdit para o id do objeto
         self.edit_id = QLineEdit()
-        self.edit_id.setStyleSheet("QLineEdit{font-size:15pt}")
+        self.edit_id.setStyleSheet("QLineEdit{font-size:12pt}")
         #------------------------------------------------------
 
         # Labels para o número de série do objeto
         self.label_numero = QLabel("Número de série:")
-        self.label_numero.setStyleSheet("QLabel{font-size:15pt}")
+        self.label_numero.setStyleSheet("QLabel{font-size:12pt}")
         #LineEdit para o id do objeto
         self.edit_numero = QLineEdit()
-        self.edit_numero.setStyleSheet("QLineEdit{font-size:15pt}")
+        self.edit_numero.setStyleSheet("QLineEdit{font-size:12pt}")
         #------------------------------------------------------
 
         # Labels para o nome do patrimônio
         self.label_nome_patrimonio = QLabel("Nome do Patrimônio:")
-        self.label_nome_patrimonio.setStyleSheet("QLabel{font-size:15pt}")
+        self.label_nome_patrimonio.setStyleSheet("QLabel{font-size:12pt}")
         #LineEdit para o nome do patrimônio
         self.edit_nome_patrimonio = QLineEdit()
-        self.edit_nome_patrimonio.setStyleSheet("QLineEdit{font-size:15pt}")
+        self.edit_nome_patrimonio.setStyleSheet("QLineEdit{font-size:12pt}")
         #------------------------------------------------------
 
         # Labels para o tipo do objeto
         self.label_tipo = QLabel("Tipo do objeto:")
-        self.label_tipo.setStyleSheet("QLabel{font-size:15pt}")
+        self.label_tipo.setStyleSheet("QLabel{font-size:12pt}")
         #LineEdit para o tipo do objeto
         self.edit_tipo = QLineEdit()
-        self.edit_tipo.setStyleSheet("QLineEdit{font-size:15pt}")
+        self.edit_tipo.setStyleSheet("QLineEdit{font-size:12pt}")
         #------------------------------------------------------
 
         # Labels para a descrição do objeto
         self.label_descricao = QLabel("Pequena descrição do objeto:")
-        self.label_descricao.setStyleSheet("QLabel{font-size:15pt}")
+        self.label_descricao.setStyleSheet("QLabel{font-size:12pt}")
         #LineEdit para o tipo do objeto
         self.edit_descricao = QLineEdit()
-        self.edit_descricao.setStyleSheet("QLineEdit{font-size:15pt}")
+        self.edit_descricao.setStyleSheet("QLineEdit{font-size:12pt}")
         #------------------------------------------------------
 
         # Labels para a localização do objeto
         self.label_local = QLabel("Sua localização:")
-        self.label_local.setStyleSheet("QLabel{font-size:15pt}")
+        self.label_local.setStyleSheet("QLabel{font-size:12pt}")
         #LineEdit para o tipo do objeto
         self.edit_local = QLineEdit()
-        self.edit_local.setStyleSheet("QLineEdit{font-size:15pt}")
+        self.edit_local.setStyleSheet("QLineEdit{font-size:12pt}")
         #------------------------------------------------------
 
         # Labels para a data de fabricação do objeto
         self.label_fabricacao = QLabel("Data de fabricação:")
-        self.label_fabricacao.setStyleSheet("QLabel{font-size:15pt}")
+        self.label_fabricacao.setStyleSheet("QLabel{font-size:12pt}")
         #LineEdit para o tipo do objeto
         self.edit_frabricacao = QLineEdit()
-        self.edit_frabricacao.setStyleSheet("QLineEdit{font-size:15pt}")
+        self.edit_frabricacao.setStyleSheet("QLineEdit{font-size:12pt}")
         #------------------------------------------------------
 
         # Labels para a data de aquisição do objeto
         self.label_aquisicao = QLabel("Data de aquisição:")
-        self.label_aquisicao.setStyleSheet("QLabel{font-size:15pt}")
+        self.label_aquisicao.setStyleSheet("QLabel{font-size:12pt}")
         #LineEdit para o tipo do objeto
         self.edit_aquisicao = QLineEdit()
-        self.edit_aquisicao.setStyleSheet("QLineEdit{font-size:15pt}")
+        self.edit_aquisicao.setStyleSheet("QLineEdit{font-size:12pt}")
         #------------------------------------------------------
 
         self.button = QPushButton("Cadastrar")
-        self.button.setStyleSheet("QPushButton{background-color:red;color:white;font-size:20pt;font-weight:bold}")
+        self.button.setStyleSheet("QPushButton{background-color:black;color:white;font-size:12pt;font-weight:bold}")
         # Chamar a função de cadastro do cliente ao clicar no botão
         self.button.clicked.connect(self.cadastrar)
         #------------------------------------------------------
@@ -126,7 +126,7 @@ class CadastroCliente(QWidget):
 
     def cadastrar(self):
         # Vamos criar uma variável que fara referencia ao um arquivo de texto
-        arquivo = open("Patrimônio.txt","+a")
+        arquivo = open("Patrimônio.txt","+a",encoding="utf8")
         arquivo.write(f"ID: {self.edit_id.text()}\n")
         arquivo.write(f"Número de série: {self.edit_numero.text()}\n")
         arquivo.write(f"Nome do patrimônio: {self.edit_nome_patrimonio.text()}\n")
@@ -139,10 +139,11 @@ class CadastroCliente(QWidget):
         arquivo.close()
 
 
-app = QApplication(sys.argv)
+
+# app = QApplication(sys.argv)
 # Instancia da classe CadastroCliente para iniciar a janela
-tela = CadastroCliente()
+# tela = Patrimonio()
 # exibir a tela durante a execução
-tela.show()
+# tela.show()
 # ao clicar no botão fechar a tela deve fechar e sair da memória
-app.exec()
+# app.exec() 

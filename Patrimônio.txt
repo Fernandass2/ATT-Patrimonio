@@ -1,0 +1,36 @@
+ID: 045264
+N�mero de s�rie: 78459888
+Nome do patrim�nio: Samsung
+Tipo: Notebook
+Descri��o: Computador novo
+Localiza��o: S�o Paulo
+Data de fabrica��o: 10/02/2020
+Data de aquisi��o: 25/01/2025
+-------------------------------------------
+ID: 15426
+Número de série: 88854713952
+Nome do patrimônio: Computador
+Tipo: Eletronico
+Descrição: Computador com avarias.
+Localização: Tatuapé - São Paulo
+Data de fabricação: 14/05/2021
+Data de aquisição: 25/01/2025
+-------------------------------------------
+ID: 
+Número de série: 
+Nome do patrimônio: 
+Tipo: 
+Descrição: 
+Localização: 
+Data de fabricação: 
+Data de aquisição: 
+-------------------------------------------
+ID: 
+Número de série: 
+Nome do patrimônio: 
+Tipo: 
+Descrição: 
+Localização: 
+Data de fabricação: 
+Data de aquisição: 
+-------------------------------------------
