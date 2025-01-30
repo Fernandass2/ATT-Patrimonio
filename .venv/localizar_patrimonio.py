@@ -1,7 +1,8 @@
 from PyQt5.QtWidgets import QApplication, QWidget, QLabel, QLineEdit, QPushButton, QVBoxLayout, QMessageBox
 import sys 
+import csv
 
-class Patrimonio(QWidget):
+class localizar_patrimonio(QWidget):
     def __init__(self):
         super().__init__()
 
@@ -17,77 +18,74 @@ class Patrimonio(QWidget):
 
         # Labels para o id do objeto
         self.label_id = QLabel("ID do objeto:")
-        self.label_id.setStyleSheet("QLabel{font-size:15pt}")
+        self.label_id.setStyleSheet("QLabel{font-size:12pt}")
         #LineEdit para o id do objeto
         self.edit_id = QLineEdit()
-        self.edit_id.setStyleSheet("QLineEdit{font-size:15pt}")
+        self.edit_id.setStyleSheet("QLineEdit{font-size:12pt}")
         #------------------------------------------------------
 
         # Labels para o número de série do objeto
         self.label_numero = QLabel("Número de série:")
-        self.label_numero.setStyleSheet("QLabel{font-size:15pt}")
+        self.label_numero.setStyleSheet("QLabel{font-size:12pt}")
         #LineEdit para o id do objeto
         self.edit_numero = QLineEdit()
-        self.edit_numero.setStyleSheet("QLineEdit{font-size:15pt}")
+        self.edit_numero.setStyleSheet("QLineEdit{font-size:12pt}")
         #------------------------------------------------------
 
         # Labels para o nome do patrimônio
         self.label_nome_patrimonio = QLabel("Nome do Patrimônio:")
-        self.label_nome_patrimonio.setStyleSheet("QLabel{font-size:15pt}")
+        self.label_nome_patrimonio.setStyleSheet("QLabel{font-size:12pt}")
         #LineEdit para o nome do patrimônio
         self.edit_nome_patrimonio = QLineEdit()
-        self.edit_nome_patrimonio.setStyleSheet("QLineEdit{font-size:15pt}")
+        self.edit_nome_patrimonio.setStyleSheet("QLineEdit{font-size:12pt}")
         #------------------------------------------------------
 
         # Labels para o tipo do objeto
         self.label_tipo = QLabel("Tipo do objeto:")
-        self.label_tipo.setStyleSheet("QLabel{font-size:15pt}")
+        self.label_tipo.setStyleSheet("QLabel{font-size:12pt}")
         #LineEdit para o tipo do objeto
         self.edit_tipo = QLineEdit()
-        self.edit_tipo.setStyleSheet("QLineEdit{font-size:15pt}")
+        self.edit_tipo.setStyleSheet("QLineEdit{font-size:12pt}")
         #------------------------------------------------------
 
         # Labels para a descrição do objeto
         self.label_descricao = QLabel("Pequena descrição do objeto:")
-        self.label_descricao.setStyleSheet("QLabel{font-size:15pt}")
+        self.label_descricao.setStyleSheet("QLabel{font-size:12pt}")
         #LineEdit para o tipo do objeto
         self.edit_descricao = QLineEdit()
-        self.edit_descricao.setStyleSheet("QLineEdit{font-size:15pt}")
+        self.edit_descricao.setStyleSheet("QLineEdit{font-size:12pt}")
         #------------------------------------------------------
 
         # Labels para a localização do objeto
         self.label_localizacao = QLabel("Sua localização:")
-        self.label_localizacao.setStyleSheet("QLabel{font-size:15pt}")
+        self.label_localizacao.setStyleSheet("QLabel{font-size:12pt}")
         #LineEdit para o tipo do objeto
         self.edit_localizacao = QLineEdit()
-        self.edit_localizacao.setStyleSheet("QLineEdit{font-size:15pt}")
+        self.edit_localizacao.setStyleSheet("QLineEdit{font-size:12pt}")
         #------------------------------------------------------
 
         # Labels para a data de fabricação do objeto
         self.label_fabricacao = QLabel("Data de fabricação:")
-        self.label_fabricacao.setStyleSheet("QLabel{font-size:15pt}")
+        self.label_fabricacao.setStyleSheet("QLabel{font-size:12pt}")
         #LineEdit para o tipo do objeto
         self.edit_fabricacao = QLineEdit()
-        self.edit_fabricacao.setStyleSheet("QLineEdit{font-size:15pt}")
+        self.edit_fabricacao.setStyleSheet("QLineEdit{font-size:12pt}")
         #------------------------------------------------------
 
         # Labels para a data de aquisição do objeto
         self.label_aquisicao = QLabel("Data de aquisição:")
-        self.label_aquisicao.setStyleSheet("QLabel{font-size:15pt}")
+        self.label_aquisicao.setStyleSheet("QLabel{font-size:12pt}")
         #LineEdit para o tipo do objeto
         self.edit_aquisicao = QLineEdit()
-        self.edit_aquisicao.setStyleSheet("QLineEdit{font-size:15pt}")
-        #------------------------------------------------------
-
-        self.button = QPushButton("Cadastrar")
-        self.button.setStyleSheet("QPushButton{background-color:blue;color:white;font-size:20pt;font-weight:bold}")
-        # Chamar a função de cadastro do cliente ao clicar no botão
-        self.button.clicked.connect(self.cadastrar)
+        self.edit_aquisicao.setStyleSheet("QLineEdit{font-size:12pt}")
         #------------------------------------------------------
 
         # Adicionar a Label id e o lineedit ao layout certical
         self.layout_v.addWidget(self.label_id)
         self.layout_v.addWidget(self.edit_id)
+        self.btnbuscar=  QPushButton("Buscar Patrimônio")
+        self.layout_v.addWidget(self.btnbuscar)
+        self.btnbuscar.clicked.connect(self.localizar)
 
         # Adicionar a Label números de série e o lineedit ao layout certical
         self.layout_v.addWidget(self.label_numero)
@@ -117,29 +115,29 @@ class Patrimonio(QWidget):
         self.layout_v.addWidget(self.label_aquisicao)
         self.layout_v.addWidget(self.edit_aquisicao)
 
-        self.layout_v.addWidget(self.button)
-
         
         
         #adicionar o layout_v a tela
         self.setLayout(self.layout_v)
 
-    def cadastrar(self):
-        if(self.edit_id.text()=="" or self.edit_numero.text()=="" or self.edit_nome_patrimonio.text()=="" or self.edit_tipo.text()=="" or self.edit_descricao.text()=="" or self.edit_frabricacao.text()=="" or self.edit_aquisicao.text()==""):
-            QMessageBox.critical(self, "Erro", "Você deve preencher todos os campos")
-        else:
-            # Vamos criar uma variável que fara referencia ao um arquivo de texto
-            arquivo = open("Patrimônio.csv","+a", encoding="utf8")
-            arquivo.write(f"{self.edit_id.text()};")
-            arquivo.write(f"{self.edit_numero.text()};")
-            arquivo.write(f"{self.edit_nome_patrimonio.text()};")
-            arquivo.write(f"{self.edit_tipo.text()};")
-            arquivo.write(f"{self.edit_descricao.text()};")
-            arquivo.write(f"{self.edit_localizacao.text()};")
-            arquivo.write(f"{self.edit_fabricacao.text()};")
-            arquivo.write(f"{self.edit_aquisicao.text()}")
-            arquivo.close()
-            QMessageBox.information(self, "Salvo", "Os dados do patrimônio foram salvos")
+    def localizar(self):
+        # Abrir o aquivo csv e atribuir a uma variável 
+        arquivo = open("Patrimônio.csv","r",encoding="utf8")
+        linhas = csv.reader(arquivo)
+
+
+        for i in linhas:
+            lin = str(i).replace("['","").replace("']","").split(";")
+            if(lin[0]==self.edit_id.text()):
+                self.edit_numero.setText(lin[1])
+                self.edit_nome_patrimonio.setText(lin[2])
+                self.edit_tipo.setText(lin[3])
+                self.edit_descricao.setText(lin[4])
+                self.edit_localizacao.setText(lin[5])
+                self.edit_fabricacao.setText(lin[6])
+                self.edit_aquisicao.setText(lin[7])
+
+  
 
 
 #app = QApplication(sys.argv)
